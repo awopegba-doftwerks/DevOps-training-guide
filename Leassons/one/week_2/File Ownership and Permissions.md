@@ -24,6 +24,58 @@ File ownership and permissions are critical for managing access to files and dir
     - **`stat` Command:** Utilize `stat` to display detailed file information, including ownership and permissions.
         - Example: `stat /path/to/file`
         - Explanation: The output provides detailed information about the file, including permissions, owner, group, size, and timestamps.
+          The `stat` command in Linux is used to display detailed information about a file or directory. When you run the command `stat /folder_path`, it provides information about the specified directory. Here's an explanation of the typical output:
+
+```
+File: /folder_path
+Size: <size>             Blocks: <blocks>        IO Block: <block_size>  directory
+Device: <device_id>      Inode: <inode_number>   Links: <link_count>
+Access: (<permissions>)  Uid: (<user_id>/<username>)   Gid: (<group_id>/<groupname>)
+Access: <access_time>
+Modify: <modify_time>
+Change: <change_time>
+Birth: <birth_time>
+```
+
+- **File**: This line simply displays the path to the directory being queried.
+- **Size**: Indicates the total size of the directory in bytes.
+- **Blocks**: Shows the number of blocks allocated for the directory.
+- **IO Block**: Denotes the block size used for I/O operations.
+- **Device**: Specifies the device (disk partition) where the directory resides.
+- **Inode**: Shows the inode number of the directory.
+- **Links**: Indicates the number of hard links associated with the directory.
+- **Access**: Shows the last time the directory was accessed.
+- **Modify**: Indicates the last time the directory's contents were modified.
+- **Change**: Shows the last time the directory's metadata (permissions, etc.) was changed.
+- **Birth**: Displays the creation time (if available) of the directory.
+
+The values in angle brackets `< >` are placeholders for the actual values specific to the directory being queried. This output provides detailed information about the specified directory's properties and status.
+
+The command `ls -l /path/to/file` is used to list detailed information about a specific file, including its permissions, ownership, size, and modification date. Here's an example output and its explanation:
+
+```bash
+-rw-r--r-- 1 user group 1024 Feb 27 10:00 /path/to/file
+```
+
+- **Field 1**: `-rw-r--r--`: This field represents the file's permissions. In this example:
+    - The first character `-` indicates that it's a regular file. If it were a directory, it would be displayed as `d`.
+    - The next three characters `rw-` represent the owner's permissions, indicating read and write permissions but no execute permission.
+    - The following three characters `r--` represent the group's permissions, indicating read-only permissions.
+    - The last three characters `r--` represent others' permissions, indicating read-only permissions.
+
+- **Field 2**: `1`: Indicates the number of hard links to the file.
+
+- **Field 3**: `user`: Indicates the owner of the file.
+
+- **Field 4**: `group`: Indicates the group associated with the file.
+
+- **Field 5**: `1024`: Indicates the size of the file in bytes.
+
+- **Field 6**: `Feb 27 10:00`: Indicates the date and time when the file was last modified.
+
+- **Field 7**: `/path/to/file`: Specifies the file's path.
+
+This output provides comprehensive information about the specified file, including its permissions, size, ownership, and modification date.
 
 4. **Modifying File Ownership and Permissions:**
     - **`chown` Command:** Change the owner and group of files and directories.
