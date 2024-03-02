@@ -45,6 +45,36 @@ In Week 3, students will dive deeper into advanced file management techniques an
 
         - **`/path/to/files*`**: This specifies the path to the files you want to search within. The asterisk `*` is a wildcard character that matches any character or sequence of characters in filenames. So `/path/to/files*` would match all files in the directory `/path/to/` whose filenames start with `files`. When you run this command, `grep` will search for the specified string `"search_string"` within all files whose filenames match the pattern `/path/to/files*`. If any matches are found, `grep` will display the lines containing the search string along with the filename(s) where the string was found.
 
+The `gzip` command in Linux is used to compress files. It is often used in combination with the `tar` command to create compressed archive files (`tar.gz` or `.tgz` files). Here's a brief overview of how to use the `gzip` command:
+
+To compress a single file:
+```bash
+gzip filename
+```
+
+This command compresses the file `filename` and replaces it with a compressed version named `filename.gz`. The original file is deleted unless the `-k` option is used to keep it.
+
+To decompress a `.gz` file:
+```bash
+gzip -d filename.gz
+```
+or
+```bash
+gunzip filename.gz
+```
+
+Both of these commands decompress the file `filename.gz`, restoring it to its original uncompressed state. The `-d` option explicitly specifies decompression with `gzip`, while `gunzip` is a separate command that achieves the same result.
+
+To keep the original file when compressing or decompressing, you can use the `-k` option:
+```bash
+gzip -k filename
+```
+```bash
+gzip -dk filename.gz
+```
+
+These are some basic uses of the `gzip` command for file compression and decompression. It's a handy tool for reducing file sizes, especially when transferring or storing large amounts of data.
+
 **Day 2: Advanced Permissions and Ownership**
 - **Objective:** Understand advanced concepts of file permissions and ownership.
 - **Topics Covered:**
